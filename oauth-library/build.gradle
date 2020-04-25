@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'org.jjunpro'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /* Google && FaceBook OAuth 인증 의존성 */
+    implementation 'com.google.apis:google-api-services-people:v1-rev528-1.25.0'
+    implementation 'org.springframework.social:spring-social-facebook:2.0.3.RELEASE'
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jjunpro.shop.mapper.AccountMapper">
+
+  <select id="findById" resultType="account">
+        SELECT id
+                ,username
+                ,email
+                ,firstName
+                ,lastName
+        FROM account
+        WHERE ID = #{id}
+    </select>
+
+  <select id="findAll" resultType="account">
+        SELECT  id
+                ,username
+                ,email
+                ,firstName
+                ,lastName
+        FROM account
+    </select>
+
+  <select id="findByUsername" resultType="account">
+    SELECT * FROM account WHERE username = #{username}
+  </select>
+
+  <select id="findByEmail" resultType="account">
+    SELECT * FROM account WHERE email = #{email}
+  </select>
+
+  <select id="findByEmailAndEnabled" resultType="account">
+    SELECT * FROM account WHERE email = #{email} AND #{enabled} = true
+  </select>
+
+  <insert id="insertAccount" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO account (username, email, firstName, lastName, password, enabled, userRole, ageRange, birthday, gender)
+    VALUES (#{username}, #{email}, #{firstName}, #{lastName}, #{password}, #{enabled}, #{userRole}, #{ageRange}, #{birthday}, #{gender})
+  </insert>
+
+  <update id="updateAccount" useGeneratedKeys="true" keyProperty="id">
+    UPDATE account
+    SET
+    username = #{username},
+    email = #{email},
+    firstName = #{firstName},
+    lastName = #{lastName},
+    password = #{password},
+    enabled = #{enabled},
+    userRole = #{userRole},
+    ageRange = #{ageRange},
+    birthday = #{birthday},
+    gender = #{gender}
+    WHERE id = #{id}
+  </update>
+
+</mapper>

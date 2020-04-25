@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{'/register'}" th:object="${account}">
+  <div class="row">
+    <h2 style="text-align:center">Login with Social Media or Manually</h2>
+    <div class="vl">
+      <span class="vl-innertext">or</span>
+    </div>
+
+    <div class="col">
+      <a class="fb btn" th:href="@{/facebook/login}">
+        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+      </a>
+      <br/>
+      <a class="google btn" th:href="@{/google/login}">
+        <i class="fa fa-google fa-fw"></i> Login with Google+
+      </a>
+      <br/>
+      <a class="kakao btn" th:href="@{/kakao/login}">
+        <i class="fa fa-twitter fa-fw"></i> Login with Kakao
+      </a>
+      <br/>
+      <a class="naver btn" th:href="@{/naver/login}">
+        <i class="fa fa-twitter fa-fw"></i> Login with Naver
+      </a>
+    </div>
+
+    <div class="col">
+      <div class="hide-md-lg">
+        <p>Or sign in manually:</p>
+      </div>
+
+      <input type="text" name="firstName" placeholder="firstName" required="required" th:field="*{firstName}">
+      <input type="text" name="lastName" placeholder="lastName" required="required" th:field="*{lastName}">
+      <input type="text" name="username" placeholder="username" required="required" th:field="*{username}">
+      <input type="password" name="password" placeholder="Password" required="required" th:field="*{password}">
+      <input type="submit" value="Login">
+    </div>
+
+  </div>
+</form>
+
+</body>
+</html>
